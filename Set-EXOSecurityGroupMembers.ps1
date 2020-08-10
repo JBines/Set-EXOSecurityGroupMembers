@@ -5,7 +5,7 @@ This script automates the population of a Mail-Enabled Security Group based on a
 .DESCRIPTION
 This has been created because the Application Access Policies in Exchange Online do not support dynamic groups. As static lists quickly become outdated our primary goal is to automate this process.  
 
-## Set-EXOSecurityGroupMembers.ps1 [-MailboxFilter <string[OPATH filter]>] [-GroupIdentity <Array[GUID]>] [-DifferentialScope <Int>] [-AutomationPSCredential<String>]
+## Set-EXOSecurityGroupMembers.ps1 [-MailboxFilter <string[OPATH filter]>] [-GroupIdentity <String[GUID or Mail]>] [-DifferentialScope <Int>] [-AutomationPSCredential<String>]
 
 .PARAMETER MailboxFilter
 The MailboxFilter parameter details the ObjectId of the Azure Group which contains all the desired owners as members of one group.
@@ -20,7 +20,7 @@ The DifferentialScope parameter defines how many objects can be added or removed
 The AutomationPSCredential parameter defines which Azure Automation Cred you would like to use. This account must have the access to Read | Write to Mail Users and Remove Guest Accounts 
 
 .EXAMPLE
-Set-EXOSecurityGroupMembers.ps1 -MailboxFilter "EmailAddresses -like '*@contso.com'" -GroupIdentity '0e55190c-73ee-e811-80e9-005056a31be6'
+Set-EXOSecurityGroupMembers.ps1 -MailboxFilter "EmailAddresses -like '*@contso.com'" -GroupIdentity 'group@contso.onmicrosoft.com'
 
 -- SET MEMBERS FOR ROLE GROUPS --
 
